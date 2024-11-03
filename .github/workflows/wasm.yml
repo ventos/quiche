@@ -33,6 +33,7 @@ jobs:
         ls build/
         tar cfz libs.tar.xz build/libcrypto.a build/libssl.a build/libdecrepit.a
     - name: Download a single artifact
-      uses: actions/download-artifact@v4
+      uses: actions/upload-artifact@v4
       with:
-        name: libs.tar.gz
+        name: wasm-boringssl-libs
+        path: libs.tar.gz
