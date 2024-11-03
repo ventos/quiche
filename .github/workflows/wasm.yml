@@ -29,5 +29,10 @@ jobs:
         sudo apt-get install make
         cd boringssl/
         cmake -D"CMAKE_MAKE_PROGRAM:PATH=$(which make)" -DCMAKE_TOOLCHAIN_FILE=$WASI_SDK_PATH/share/cmake/wasi-sdk-p2-boringssl.cmake -B build -DCMAKE_BUILD_TYPE=Release
-        make -C build crypto ssl
+        make -C build ssl decrepit crypto
         ls build/
+        tar cfz libs.tar.xz build/libcrypto.a build/libssl.a build/libdecrepit.a
+    - name: Download a single artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: libs.tar.gz
