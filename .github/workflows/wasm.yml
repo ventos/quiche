@@ -26,6 +26,7 @@ jobs:
         cp boring-wasm/wasi-sdk-p2-boringssl.cmake  wasi-sdk-24.0-x86_64-linux
         WASI_SDK_PATH="$(pwd)/wasi-sdk-24.0-x86_64-linux"
         echo $WASI_SDK_PATH
+        sudo apt-get install make
         cd boringssl/
         cmake -DCMAKE_TOOLCHAIN_FILE=$WASI_SDK_PATH/share/cmake/wasi-sdk-p2-boringssl.cmake -B build -DCMAKE_BUILD_TYPE=Release
         make -C build crypto ssl
