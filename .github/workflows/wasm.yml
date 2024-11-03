@@ -14,10 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: seanmiddleditch/gha-setup-ninja@master
+    - name: Install ninja
+      run: sudo apt-get install ninja-build
     - name: Download WASI SDK and BoringSSL
       run: |
-        wget https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-24/wasi-sdk-24.0-x86_64-linux.tar.gz
+        wget -q https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-24/wasi-sdk-24.0-x86_64-linux.tar.gz
         tar xf wasi-sdk-24.0-x86_64-linux.tar.gz
         git clone https://github.com/google/boringssl.git
     - name: Generate Boring WASM libs
