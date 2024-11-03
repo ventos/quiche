@@ -23,7 +23,7 @@ jobs:
       run: |
         ls
         cp boring-wasm/boring.h  wasi-sdk-24.0-x86_64-linux/share/cmake/
-        cp boring-wasm/wasi-sdk-p2-boring.cmake  wasi-sdk-24.0-x86_64-linux
+        cp boring-wasm/wasi-sdk-p2-boringssl.cmake  wasi-sdk-24.0-x86_64-linux
         WASI_SDK_PATH="$(pwd)/wasi-sdk-24.0-x86_64-linux"
         echo $WASI_SDK_PATH
         cd boringssl/
