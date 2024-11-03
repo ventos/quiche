@@ -15,7 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install ninja
-      run: sudo apt-get install ninja-build
+      run: |
+        sudo apt-get install ninja-build
+        sudo ln -s /usr/bin/ninja /usr/bin/ninja-build
+        ninja --version
+        which ninja
     - name: Download WASI SDK and BoringSSL
       run: |
         wget -q https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-24/wasi-sdk-24.0-x86_64-linux.tar.gz
