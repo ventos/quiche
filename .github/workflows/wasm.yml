@@ -44,3 +44,7 @@ jobs:
         rustup target add wasm32-wasip2
         cd quiche/
         cargo +nightly build --verbose --release --target wasm32-wasip2 --no-default-features --features boringssl-wasm
+    - name: Test quiche client
+      run: |
+        cd client
+        cargo +nightly build --verbose --release --target wasm32-wasip2

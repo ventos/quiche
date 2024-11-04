@@ -1,0 +1,10 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+quiche = { path = "../quiche", features = ["boringssl-wasm"], default-features = false }
+url = { git = "https://github.com/servo/rust-url.git", rev = "30e6258" }
+ring = "0.17.8"
+mio = { version = "1.0.2", features = [ "net", "os-poll" ] }
